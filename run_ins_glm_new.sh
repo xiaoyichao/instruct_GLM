@@ -9,11 +9,11 @@ mkdir -p $OUTPUT_PATH
 python train_lora_new.py \
     --dataset_path data/alpaca_zh \
     --lora_rank 8 \
-    --per_device_train_batch_size 2 \
+    --per_device_train_batch_size 3 \
     --gradient_accumulation_steps 1 \
-    --max_steps 52000 \
-    --save_steps 1000 \
-    --save_total_limit 2 \
+    --num_train_epochs 1 \
+    --save_total_limit 1 \
+    --save_strategy epoch \
     --learning_rate 2e-5 \
     --fp16 \
     --remove_unused_columns false \
