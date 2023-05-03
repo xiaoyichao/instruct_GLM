@@ -11,7 +11,7 @@ from transformers import TrainingArguments
 
 from old_files.modeling_chatglm import ChatGLMForConditionalGeneration
 
-tokenizer = AutoTokenizer.from_pretrained("../../pretrained_models/chatglm-6b", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("/root/autodl-tmp/chatglm-6b", trust_remote_code=True)
 
 
 @dataclass

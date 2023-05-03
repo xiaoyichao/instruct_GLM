@@ -19,7 +19,7 @@ def preprocess(tokenizer, example, max_seq_length=512):
 
 def read_jsonl(path, max_seq_length):
     tokenizer = transformers.AutoTokenizer.from_pretrained(
-        "THUDM/chatglm-6b", trust_remote_code=True
+        "/root/autodl-tmp/chatglm-6b", trust_remote_code=True
     )
     with open(path, "r") as f:
         for line in tqdm(f.readlines()):
@@ -29,8 +29,8 @@ def read_jsonl(path, max_seq_length):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--jsonl_path", type=str, default="data/alpaca_data.jsonl")
-    parser.add_argument("--save_path", type=str, default="data/alpaca")
+    parser.add_argument("--jsonl_path", type=str, default="data/alpaca_gpt4_data_zh.jsonl")
+    parser.add_argument("--save_path", type=str, default="data/alpaca_zh")
     parser.add_argument("--max_seq_length", type=int, default=384)
     args = parser.parse_args()
 

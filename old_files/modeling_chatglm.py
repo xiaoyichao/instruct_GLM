@@ -28,7 +28,7 @@ from transformers.utils import (
 )
 from transformers.utils import logging
 
-from configuration_chatglm import ChatGLMConfig
+from old_files.configuration_chatglm import ChatGLMConfig
 
 # flags required to enable jit fusion kernels
 torch._C._jit_set_profiling_mode(False)

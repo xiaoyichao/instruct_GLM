@@ -5,8 +5,8 @@ from peft import get_peft_model, LoraConfig, TaskType
 from transformers import AutoModel
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
-model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+tokenizer = AutoTokenizer.from_pretrained("/root/autodl-tmp/chatglm-6b", trust_remote_code=True)
+model = AutoModel.from_pretrained("/root/autodl-tmp/chatglm-6b", trust_remote_code=True).half().cuda()
 torch.set_default_tensor_type(torch.cuda.HalfTensor)
 
 # 加载基于alpaca 52k数据微调的lora权重

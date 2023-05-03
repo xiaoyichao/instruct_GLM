@@ -6,9 +6,9 @@ from cover_belle2jsonl import format_example
 from transformers import AutoModel
 
 torch.set_default_tensor_type(torch.cuda.HalfTensor)
-model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True,
+model = AutoModel.from_pretrained("/root/autodl-tmp/chatglm-6b", trust_remote_code=True,
                                                         device_map='auto')
-tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("/root/autodl-tmp/chatglm-6b", trust_remote_code=True)
 
 peft_path = "output/belle/chatglm-lora.pt"
 

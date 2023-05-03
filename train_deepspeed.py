@@ -10,7 +10,7 @@ from transformers import AutoTokenizer, AutoModel
 from accelerate import Accelerator, DeepSpeedPlugin
 from transformers import get_linear_schedule_with_warmup
 
-checkpoint = "THUDM/chatglm-6b"
+checkpoint = "/root/autodl-tmp/chatglm-6b"
 mixed_precision = 'bf16'
 lora_config = {
     'r': 32,
