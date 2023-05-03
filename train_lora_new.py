@@ -20,7 +20,7 @@ class FinetuneArguments:
     model_path: str = field(default="output")
     lora_rank: int = field(default=8)
     is_resume: bool = field(default=False)
-    resume_path: str = field(default='output/alpaca_output', )
+    resume_path: str = field(default='output/alpaca_output_zh', )
 
 
 class CastOutputToFloat(nn.Sequential):

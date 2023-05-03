@@ -31,7 +31,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--jsonl_path", type=str, default="data/alpaca_gpt4_data_zh.jsonl")
     parser.add_argument("--save_path", type=str, default="data/alpaca_zh")
-    parser.add_argument("--max_seq_length", type=int, default=384)
+    parser.add_argument("--max_seq_length", type=int, default=320)
     args = parser.parse_args()
 
     dataset = datasets.Dataset.from_generator(

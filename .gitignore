@@ -6,3 +6,6 @@ output/belle/belle_finetune_2.pt
 output/runs
 alpaca_zh
 __pycache__
+*.out
+*.log
+output

@@ -1,5 +1,9 @@
 # InstructGLM
-
+python cover_alpaca2jsonl.py
+python tokenize_dataset_rows.py
+nohup bash run_ins_glm_new.sh.sh  > nohup_bert.out 2>&1 &
+ps -ef|grep run_ins_glm_new.sh
+ps -ef|grep train_lora_new
 > 基于ChatGLM-6B+LoRA在指令数据集上进行微调
 > 
 > 
