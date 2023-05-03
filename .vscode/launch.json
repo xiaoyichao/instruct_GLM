@@ -33,6 +33,20 @@
             "--remove_unused_columns", "false",
             "--logging_steps", "50",
             "--output_dir", "output",]
-        }
+        },
+
+        {
+            "name": "Python: cover_alpaca2jsonl",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--data_path","data/alpaca_data_zh.json" ,
+                "--save_path", "data/alpaca_data_zh.jsonl" ]
+        },
+
+
     ]
 }

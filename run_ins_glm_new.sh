@@ -7,7 +7,7 @@ OUTPUT_PATH=./output/0503-zh-ins/
 mkdir -p $OUTPUT_PATH
 
 python train_lora_new.py \
-    --dataset_path data/alpaca \
+    --dataset_path data/alpaca_zh \
     --lora_rank 8 \
     --per_device_train_batch_size 2 \
     --gradient_accumulation_steps 1 \

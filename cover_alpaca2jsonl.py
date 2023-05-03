@@ -17,7 +17,7 @@ def main():
     parser.add_argument("--data_path", type=str, default="data/alpaca_gpt4_data_zh.json")
     parser.add_argument("--save_path", type=str, default="data/alpaca_gpt4_data_zh.jsonl")
 
-    args = parser.parse_args()
+    args = parser.parse_args(args=[])
     with open(args.data_path) as f:
         examples = json.load(f)
 
