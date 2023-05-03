@@ -122,10 +122,10 @@ def main():
 
     # init model
     model = ChatGLMForConditionalGeneration.from_pretrained(
-        "../../pretrained_models/chatglm-6b", load_in_8bit=True, trust_remote_code=True, device_map="auto"
+        "/root/autodl-tmp/chatglm-6b", load_in_8bit=True, trust_remote_code=True, device_map="auto"
     )
 
-    model.gradient_checkpointing_enable()
+    # model.gradient_checkpointing_enable() #指模型是否支持梯度检查点（gradient checkpointing）。梯度检查点是一种在计算图的中间保存中间结果，以减少模型的内存占用的技术。当模型参数非常多，无法同时放入显存时，使用梯度检查点技术可以减少显存的占用。
     model.enable_input_require_grads()
     model.is_parallelizable = True
     model.model_parallel = True

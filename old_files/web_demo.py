@@ -5,12 +5,12 @@ from transformers import AutoTokenizer
 
 from modeling_chatglm import ChatGLMForConditionalGeneration
 
-tokenizer = AutoTokenizer.from_pretrained("../../../pretrained_models/chatglm-6b/", trust_remote_code=True)
-# model = ChatGLMForConditionalGeneration.from_pretrained("../../pretrained_models/chatglm-6b/", trust_remote_code=True).half().cuda()
+tokenizer = AutoTokenizer.from_pretrained("..//root/autodl-tmp/chatglm-6b/", trust_remote_code=True)
+# model = ChatGLMForConditionalGeneration.from_pretrained("/root/autodl-tmp/chatglm-6b/", trust_remote_code=True).half().cuda()
 # model = model.eval()
 
 torch.set_default_tensor_type(torch.cuda.HalfTensor)
-model = ChatGLMForConditionalGeneration.from_pretrained("../../../pretrained_models/chatglm-6b/",
+model = ChatGLMForConditionalGeneration.from_pretrained("..//root/autodl-tmp/chatglm-6b/",
                                                         trust_remote_code=True, device_map='auto')
 model.eval()
 peft_path = "../output/alpaca/chatglm-lora.pt"
