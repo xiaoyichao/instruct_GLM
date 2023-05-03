@@ -9,7 +9,7 @@ from transformers import AutoTokenizer
 from transformers import Trainer, HfArgumentParser
 from transformers import TrainingArguments
 
-from old_files.modeling_chatglm import ChatGLMForConditionalGeneration
+from new_files.modeling_chatglm import ChatGLMForConditionalGeneration
 
 tokenizer = AutoTokenizer.from_pretrained("/root/autodl-tmp/chatglm-6b", trust_remote_code=True)
 
@@ -79,22 +79,22 @@ def data_collator(features: list) -> dict:
         )
         ids = ids + [tokenizer.eos_token_id] * (longest - ids_l)
         _ids = torch.LongTensor(ids)
-        attention_mask, position_ids = get_masks_and_position_ids(
-            ids, seq_len, longest, _ids.device, gmask=False
-        )
+        # attention_mask, position_ids = get_masks_and_position_ids(
+        #     ids, seq_len, longest, _ids.device, gmask=False
+        # )
         labels_list.append(torch.LongTensor(labels))
         input_ids.append(_ids)
-        attention_mask_list.append(attention_mask)
-        position_ids_list.append(position_ids)
+        # attention_mask_list.append(attention_mask)
+        # position_ids_list.append(position_ids)
     input_ids = torch.stack(input_ids)
     labels = torch.stack(labels_list)
-    attention_mask = torch.stack(attention_mask_list)
-    position_ids = torch.stack(position_ids_list)
+    # attention_mask = torch.stack(attention_mask_list)
+    # position_ids = torch.stack(position_ids_list)
     return {
         "input_ids": input_ids,
         "labels": labels,
-        "attention_mask": attention_mask,
-        "position_ids": position_ids,
+        # "attention_mask": attention_mask,
+        # "position_ids": position_ids,
     }
 
 
@@ -102,8 +102,8 @@ class ModifiedTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):
         return model(
             input_ids=inputs["input_ids"],
-            attention_mask=inputs["attention_mask"],
-            position_ids=inputs["position_ids"],
+            # attention_mask=inputs["attention_mask"],
+            # position_ids=inputs["position_ids"],
             labels=inputs["labels"],
         ).loss
 
