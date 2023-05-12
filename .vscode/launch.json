@@ -23,16 +23,32 @@
             "args": [
             "--dataset_path", "data/alpaca_zh" ,
             "--lora_rank", "8" ,
-            "--per_device_train_batch_size", "2" ,
+            "--per_device_train_batch_size", "3" ,
             "--gradient_accumulation_steps", "1" ,
-            "--max_steps", "52000" ,
-            "--save_steps", "1000" ,
-            "--save_total_limit", "2" ,
+            // "--max_steps", "52000" ,
+            "--num_train_epochs", "1" ,
+            // "--save_steps", "1000" ,
+            "--save_strategy", "epoch" ,
+            "--save_total_limit", "1" ,
             "--learning_rate", "2e-5" ,
             // "--fp16",  ,
             "--remove_unused_columns", "false",
             "--logging_steps", "50",
             "--output_dir", "output",]
-        }
+        },
+
+        {
+            "name": "Python: cover_alpaca2jsonl",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--data_path","data/alpaca_data_zh.json" ,
+                "--save_path", "data/alpaca_data_zh.jsonl" ]
+        },
+
+
     ]
 }
