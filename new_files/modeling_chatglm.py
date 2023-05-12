@@ -677,6 +677,8 @@ class ChatGLMPreTrainedModel(PreTrainedModel):
         """Initialize the weights."""
         return
 
+    
+    # 这里获得attention_mask    
     def get_masks(self, input_ids, device):
         batch_size, seq_length = input_ids.shape
         context_lengths = [seq.tolist().index(self.config.bos_token_id) for seq in input_ids]
